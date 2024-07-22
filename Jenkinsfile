@@ -6,5 +6,10 @@ pipeline {
                 sh 'python --version'
             }
         }
+        stage('useless') {
+            steps {
+                sh 'echo 42'
+            }
+        }
     }
 }
