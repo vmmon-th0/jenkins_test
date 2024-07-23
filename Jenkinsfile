@@ -1,14 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+
+        stage('Deploy - Staging') {
             steps {
-                sh 'echo first step bro'
+                sh 'echo 41'
+                sh 'echo 42'
             }
         }
-        stage('useless') {
+
+        stage('Sanity check') {
             steps {
-                sh 'echo 42'
+                input "Does the staging environment look ok?"
+            }
+        }
+
+        stage('Deploy - Production') {
+            steps {
+                sh 'prod env'
             }
         }
     }
